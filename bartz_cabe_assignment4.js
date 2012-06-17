@@ -33,3 +33,14 @@ var phoneNumber = function(num){
 	return num;
 };
 console.log(phoneNumber("123-456-7890"));
+
+var emailAddress = function(string){
+	var string;
+	if ((string.indexOf(".") > string.indexOf("@")) && (string.match("@") != null) ){
+		return true;
+	} else {
+		return false;
+	};
+	return string;
+};
+console.log(emailAddress("cabebartz@fullsail.edu"));
