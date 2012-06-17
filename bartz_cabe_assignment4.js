@@ -32,4 +32,4 @@ var phoneNumber = function(num){
 	};
 	return num;
 };
-console.log(phoneNumber("123-456-7890"))
+console.log(phoneNumber("123-456-7890"));
