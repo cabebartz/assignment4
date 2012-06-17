@@ -34,6 +34,8 @@ var phoneNumber = function(num){
 };
 console.log(phoneNumber("123-456-7890"));
 
+//emailAddress determines whether a string follows the aaa@bbb.ccc format.  If
+//so, it will return true.  If not, it will return false.
 var emailAddress = function(string){
 	var string;
 	if ((string.indexOf(".") > string.indexOf("@")) && (string.match("@") != null) ){
@@ -44,3 +46,20 @@ var emailAddress = function(string){
 	return string;
 };
 console.log(emailAddress("cabebartz@fullsail.edu"));
+
+//isUrl determines whether a string is a URL that starts with either http: or
+//https:.  It returns true if it is or false if it is not.
+var isUrl = function(string){     
+	var string;     
+	if ((string.charAt(0) ==="h") && (string.charAt(1) === "t") && (string.charAt(2) === "t") &&
+	(string.charAt(3) === "p") && (string.charAt(4) === ":")){
+		return true;
+	} else if ((string.charAt(0) ==="h") && (string.charAt(1) === "t") && (string.charAt(2) === "t") &&
+	(string.charAt(3) === "p") && (string.charAt(4) === "s") && ((string.charAt(5) === ":"))){
+		return true;
+	} else{
+		return false;
+	};
+	return string;
+};
+console.log(isUrl("https:google.com"));
