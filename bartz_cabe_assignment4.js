@@ -63,3 +63,19 @@ var isUrl = function(string){
 	return string;
 };
 console.log(isUrl("https:google.com"));
+
+//sumArray finds a total value of nummbers in an array.  If and array
+//parameter is NaN, sumArray will just add the numbers.  If strings in array
+//are numbers, it will not add them.  Would need to parseFloat array if that is desired.
+var sumArray = function(array){
+	var arrayTotal = 0;
+	for(var i = 0; i < array.length; i++){
+		var numArray = array[i];
+		if (!isNaN(numArray)){
+			arrayTotal += numArray;
+		};	
+	};
+	
+	return arrayTotal;
+};
+console.log(sumArray(["Jim", "Bob",12, 22.3, 10]));
