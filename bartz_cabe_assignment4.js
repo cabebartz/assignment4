@@ -45,22 +45,23 @@ var utilityLibrary = function () {
 			}
 			return checkAddr;
 		},//end emailAdress
-
-//isUrl determines whether a string is a URL that starts with either http: or
-//https:.  It returns true if it is or false if it is not.
-		isUrl = function (string) {
-			var checkUrl;
-			if ((string.charAt(0) === "h") && (string.charAt(1) === "t") && (string.charAt(2) === "t") &&
-					(string.charAt(3) === "p") && (string.charAt(4) === ":")) {
-				checkUrl = true;
-			} else if ((string.charAt(0) === "h") && (string.charAt(1) === "t") && (string.charAt(2) === "t") &&
-					(string.charAt(3) === "p") && (string.charAt(4) === "s") && ((string.charAt(5) === ":"))) {
-				checkUrl = true;
+//fuzzyMatch takes a number(num) and check to see if it is with a percentage(percent) of another number (aboveBelow)
+//will return boolean true if it is equal to or within the specified percentage
+		fuzzyMatch = function (num, aboveBelow, percent) {
+			var numMatch,	
+			convertPercent = percent / 100,
+			numPercent = num * convertPercent,
+			numDiff1 = Math.abs(aboveBelow - num),
+			numDiff2 = Math.abs(num - aboveBelow);
+			if (num === aboveBelow){
+				numMatch = true;
+			} else if (( numDiff1 || numDiff2 ) <= numPercent) {
+				numMatch = true
 			} else {
-				checkUrl = false;
+				numMatch = false
 			}
-			return checkUrl;
-		},//end isUrl
+			return numMatch;
+		},
 
 //sumArray finds a total value of nummbers in an array.  If an array
 //parameter is NaN, sumArray will just add the numbers.  If strings in array
@@ -82,14 +83,14 @@ var utilityLibrary = function () {
 		"stringNumber" : stringNumber,
 		"phoneNumber" : phoneNumber,
 		"emailAddress" : emailAddress,
-		"isUrl" : isUrl,
+		"fuzzyMatch" : fuzzyMatch,
 		"sumArray" : sumArray
 	};
 }; //end utility Library
-var utilityLib = utilityLibrary();
+var utilityLib = new utilityLibrary();
 console.log(utilityLib.numMoney(2.1));
 console.log(utilityLib.stringNumber("43.3"));
 console.log(utilityLib.phoneNumber("123-456-7890"));
 console.log(utilityLib.emailAddress("cabebartz@fullsail.edu"));
-console.log(utilityLib.isUrl("http:whwhwhwhwh"));
+console.log(utilityLib.fuzzyMatch(100, 102, 5));
 console.log(utilityLib.sumArray([1, 3.3, "bob", 20]));
