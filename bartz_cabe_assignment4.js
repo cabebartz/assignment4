@@ -48,17 +48,17 @@ var utilityLibrary = function () {
 //fuzzyMatch takes a number(num) and check to see if it is with a percentage(percent) of another number (aboveBelow)
 //will return boolean true if it is equal to or within the specified percentage
 		fuzzyMatch = function (num, aboveBelow, percent) {
-			var numMatch,	
-			convertPercent = percent / 100,
-			numPercent = num * convertPercent,
-			numDiff1 = Math.abs(aboveBelow - num),
-			numDiff2 = Math.abs(num - aboveBelow);
-			if (num === aboveBelow){
+			var numMatch,
+				convertPercent = percent / 100,
+				numPercent = num * convertPercent,
+				numDiff1 = Math.abs(aboveBelow - num),
+				numDiff2 = Math.abs(num - aboveBelow);
+			if (num === aboveBelow) {
 				numMatch = true;
-			} else if (( numDiff1 || numDiff2 ) <= numPercent) {
-				numMatch = true
+			} else if ((numDiff1 || numDiff2) <= numPercent) {
+				numMatch = true;
 			} else {
-				numMatch = false
+				numMatch = false;
 			}
 			return numMatch;
 		},
